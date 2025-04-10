@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define global color variables */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --green-light: #e6f4ea;
+  --green-main: #4caf50;
+  --green-dark: #2c6b3f;
+  --gradient-green: linear-gradient(135deg, #e6f4ea, #4caf50);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --green-light: #2c6b3f;
+    --green-main: #4caf50;
+    --green-dark: #1f4d29;
+    --gradient-green: linear-gradient(135deg, #2c6b3f, #4caf50);
+  }
+}
+
+/* Apply global styles */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Green gradient background utility */
+  .bg-gradient-green {
+    background: var(--gradient-green);
+  }
+
+  /* Green gradient border utility */
+  .border-gradient-green {
+    border-image: var(--gradient-green) 1;
+  }
+
+  /* Custom text colors */
+  .text-green-light {
+    color: var(--green-light);
+  }
+  
+  .text-green-main {
+    color: var(--green-main);
+  }
+
+  .text-green-dark {
+    color: var(--green-dark);
+  }
+}
