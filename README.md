@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FloralID - Intelligent Plant Identification & Care App
 
-## Getting Started
+FloralID is a modern web application that empowers users to identify plants effortlessly and access detailed care instructions through AI-powered image recognition. Simply upload or capture a photo of a plant, and FloralID provides instant information about its species, characteristics, and optimal care practices.
 
-First, run the development server:
+## ✨ Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **🌿 Instant Plant Identification:** Accurately identify a wide variety of plant species in seconds.
+- **📸 Flexible Image Input:**
+  - Upload images from your device.
+  - Capture photos directly using your device's camera.
+- **🔍 Comprehensive Plant Information:** Access detailed insights, including:
+  - Common and scientific names
+  - Plant family and origin
+  - Physical characteristics (e.g., leaf shape, size)
+  - Detailed care instructions
+- **💡 Personalized Care Guidance:** Receive tailored advice for:
+  - Optimal watering schedules
+  - Ideal sunlight exposure
+  - Suitable soil preferences
+  - Effective fertilization techniques
+- **📱 Responsive Design:** Enjoy a seamless experience across desktops, tablets, and smartphones.
+- **🌙 Light/Dark Mode:** Switch between light and dark themes for comfortable viewing in any environment.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌱 How it Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+FloralID leverages advanced AI to analyze plant images and provide accurate identification. It then retrieves relevant information from a comprehensive plant database to deliver detailed care instructions.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technology Stack
 
-## Learn More
+- **Next.js 15:** React framework for building efficient and scalable web applications.
+- **TypeScript:** Adds static typing to JavaScript for improved code maintainability.
+- **Tailwind CSS:** A utility-first CSS framework for rapid and customizable styling.
+- **Google Gemini AI API:** Powers the intelligent plant identification engine.
+- **Lucide Icons:** Provides a library of beautiful and consistent icons.
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/Pro-Prompter/floralid.git
+   cd floralid
+   ```
 
-## Deploy on Vercel
+2. **Install dependencies:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Configure environment variables:**
+
+   - Create a `.env.local` file in the root directory.
+   - Add your Google API key:
+
+     ```plaintext
+     GOOGLE_API_KEY=YOUR_API_KEY_HERE
+     ```
+
+4. **Start the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Open the application:**
+
+   - Access FloralID in your browser at [http://localhost:3000](http://localhost:3000).
+
+## 🌿 Usage Tips for Best Results
+
+- **Ensure good lighting:** Capture or upload images with sufficient lighting for clarity.
+- **Focus on key features:** Focus on the plant's leaves, flowers, and stems.
+- **Avoid blurry images:** Use a stable hand or tripod to minimize blur.
+- **Include multiple views:** If possible, provide images from different angles.
+
+## 🤝 Contributing
+
+We welcome contributions to make FloralID even better! Feel free to submit pull requests with bug fixes, new features, or improvements.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Plant identification is powered by Google's Gemini AI.
+- Icons are provided by [Lucide](https://lucide.com/).
+- Built with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
+
+## 📞 Contact
+
+For any questions, suggestions, or issues, please [open an issue](https://github.com/Pro-Prompter/floralid/issues) in the repository.
+
+---
+
+Made with 🌱 by Sajawal Mirza

@@ -1,61 +1,160 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* Define global color variables */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --green-light: #e6f4ea;
-  --green-main: #4caf50;
-  --green-dark: #2c6b3f;
-  --gradient-green: linear-gradient(135deg, #e6f4ea, #4caf50);
+@theme {
+  --breakpoint-xs: 480px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-green-50: #e6f4ea;
+  --color-green-100: #d0e8d2;
+  --color-green-200: #a3d1a4;
+  --color-green-300: #76b77b;
+  --color-green-400: #4caf50;
+  --color-green-500: #2c6b3f;
+  --color-green-600: #1f4d29;
+  --color-green-700: #153a1e;
+  --color-green-800: #102d18;
+  --color-green-900: #0d2412;
+
+  --color-natural-50: #f5f5f5;
+  --color-natural-100: #e0e0e0;
+  --color-natural-200: #b0b0b0;
+  --color-natural-300: #808080;
+  --color-natural-400: #4d4d4d;
+  --color-natural-500: #333333;
+  --color-natural-600: #2a2a2a;
+  --color-natural-700: #1f1f1f;
+  --color-natural-800: #141414;
+  --color-natural-900: #0a0a0a;
+
+  --color-accent-sage-50: #f1f4f0;
+  --color-accent-sage-100: #e2e9e1;
+  --color-accent-sage-200: #c5d3c3;
+  --color-accent-sage-300: #a8bda5;
+
+  --color-accent-mint-50: #f0f7f4;
+  --color-accent-mint-100: #e1f0e9;
+  --color-accent-mint-200: #c3e1d3;
+
+  --background-image-gradient-subtle: linear-gradient(
+    to right bottom,
+    rgb(241 244 240 / 0.9),
+    rgb(240 247 244 / 0.9)
+  );
+  --background-image-gradient-cool: linear-gradient(
+    to right bottom,
+    rgb(226 233 225 / 0.8),
+    rgb(225 240 233 / 0.8)
+  );
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --green-light: #2c6b3f;
-    --green-main: #4caf50;
-    --green-dark: #1f4d29;
-    --gradient-green: linear-gradient(135deg, #2c6b3f, #4caf50);
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
 }
 
-/* Apply global styles */
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@utility bg-gradient-green {
+  background: var(--gradient-green);
+}
+@utility bg-gradient-cool {
+  background: var(--gradient-cool);
+}
+@utility bg-gradient-subtle {
+  background: var(--gradient-subtle);
+}
+@utility text-green-light {
+  color: var(--green-light);
+}
+@utility text-green-main {
+  color: var(--green-main);
+}
+@utility text-green-dark {
+  color: var(--green-dark);
+}
+@utility responsive-padding {
+  padding: var(--container-padding);
+}
+@utility responsive-rounded {
+  border-radius: var(--border-radius);
 }
 
-/* Utility classes */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* Define global color variables */
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --green-light: #e6f4ea;
+    --green-main: #4caf50;
+    --green-dark: #2c6b3f;
+    --gradient-green: linear-gradient(135deg, #e6f4ea, #4caf50);
+    --container-padding: 1rem;
+    --content-width: 100%;
+    --border-radius: 0.5rem;
+    --accent-blue: #7cc5ff;
+    --accent-teal: #99e7e9;
+    --accent-sage: #a8bda5;
+    --accent-mint: #c3e1d3;
+    --gradient-cool: linear-gradient(135deg, #f1f4f0, #f0f7f4);
+    --gradient-subtle: linear-gradient(
+      135deg,
+      rgba(241, 244, 240, 0.9),
+      rgba(240, 247, 244, 0.9)
+    );
   }
 
-  /* Green gradient background utility */
-  .bg-gradient-green {
-    background: var(--gradient-green);
+  @media (min-width: 640px) {
+    :root {
+      --container-padding: 1.5rem;
+      --border-radius: 0.75rem;
+    }
   }
 
-  /* Green gradient border utility */
-  .border-gradient-green {
-    border-image: var(--gradient-green) 1;
+  @media (min-width: 1024px) {
+    :root {
+      --container-padding: 2rem;
+      --content-width: 90%;
+    }
   }
 
-  /* Custom text colors */
-  .text-green-light {
-    color: var(--green-light);
-  }
-  
-  .text-green-main {
-    color: var(--green-main);
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+      --green-light: #2c6b3f;
+      --green-main: #4caf50;
+      --green-dark: #1f4d29;
+      --gradient-green: linear-gradient(135deg, #2c6b3f, #4caf50);
+    }
   }
 
-  .text-green-dark {
-    color: var(--green-dark);
+  /* Base styles */
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    min-height: 100vh;
+    line-height: 1.5;
   }
+
+  /* Utility classes */
+}
+
+/* Responsive image handling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
 }
