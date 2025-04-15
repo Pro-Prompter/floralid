@@ -1,9 +1,18 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.android.floralid',
   appName: 'FloralID',
-  webDir: 'out'
+  webDir: 'out',
+  server: {
+    androidScheme: 'https'
+  },
+  android: {
+    buildOptions: {
+      keystorePath: 'release-key.keystore',
+      keystoreAlias: 'release-key-alias',
+    }
+  }
 };
 
 export default config;
