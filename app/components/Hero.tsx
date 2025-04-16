@@ -11,10 +11,11 @@ import {
 } from "lucide-react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { motion, AnimatePresence } from "framer-motion";
-import { Camera as CapCamera, CameraResultType } from '@capacitor/camera';
+import { Camera as CapCamera, CameraResultType } from "@capacitor/camera";
+import LoadingThrobber from "./LoadingThrobber";
 
 // Remove the hardcoded API key
-const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GOOGLE_API_KEY!);
+const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GOOGLE_API!);
 
 interface IdentifiedPlant {
   name: string;
@@ -136,7 +137,9 @@ export default function ImageUpload({ setIdentifiedPlant }: ImageUploadProps) {
       });
 
       if (image.base64String) {
-        const blob = await fetch(`data:image/jpeg;base64,${image.base64String}`).then(r => r.blob());
+        const blob = await fetch(
+          `data:image/jpeg;base64,${image.base64String}`
+        ).then((r) => r.blob());
         setImage(URL.createObjectURL(blob));
         await identifyPlant(blob);
       } else {
@@ -345,6 +348,7 @@ export default function ImageUpload({ setIdentifiedPlant }: ImageUploadProps) {
       animate={{ opacity: 1, y: 0 }}
       className="w-full max-w-5xl mx-auto p-4 sm:p-6 md:p-8"
     >
+      {loading && <LoadingThrobber />}
       <motion.div
         className="relative bg-white/70 backdrop-blur-xl rounded-2xl sm:rounded-3xl 
           shadow-[0_8px_32px_rgba(0,0,0,0.12)] p-4 sm:p-6 md:p-8 overflow-hidden 
@@ -547,21 +551,6 @@ export default function ImageUpload({ setIdentifiedPlant }: ImageUploadProps) {
 
                 <div className="space-y-4 sm:space-y-6">
                   <AnimatePresence mode="wait">
-                    {loading && (
-                      <motion.div
-                        key="loading"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="flex flex-col items-center gap-4 p-8 bg-white/80 rounded-2xl"
-                      >
-                        <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
-                        <p className="text-gray-600 font-medium">
-                          Analyzing your plant...
-                        </p>
-                      </motion.div>
-                    )}
-
                     {error && (
                       <motion.div
                         key="error"

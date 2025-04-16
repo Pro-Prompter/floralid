@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "public": false,
+  "github": {
+    "silent": true
+  },
+  "framework": "nextjs"
+}
