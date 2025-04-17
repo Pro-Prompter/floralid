@@ -5,6 +5,8 @@ const config: CapacitorConfig = {
   appName: 'FloralID',
   webDir: 'out',
   server: {
+    url: 'https://floralid.vercel.app',
+    cleartext: true,
     androidScheme: 'https'
   },
   android: {

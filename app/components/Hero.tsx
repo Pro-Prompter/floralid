@@ -14,8 +14,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Camera as CapCamera, CameraResultType } from "@capacitor/camera";
 import LoadingThrobber from "./LoadingThrobber";
 
-// Remove the hardcoded API key
-const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GOOGLE_API!);
+const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GOOGLE_API);
 
 interface IdentifiedPlant {
   name: string;
@@ -195,7 +194,7 @@ export default function ImageUpload({ setIdentifiedPlant }: ImageUploadProps) {
       ];
 
       const model = genAI.getGenerativeModel({
-        model: process.env.NEXT_PUBLIC_GEMINI_MODEL || "gemini-pro-vision",
+        model: process.env.NEXT_PUBLIC_GEMINI_MODEL || "gemini-1.5-flash-8b",
         generationConfig: {
           temperature: 0.4,
           topK: 32,
